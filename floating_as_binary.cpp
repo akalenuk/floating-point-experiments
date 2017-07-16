@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 
 std::string float_to_bin(float x)
@@ -30,21 +31,23 @@ int main()
 	present(-0.);
 	present(1.);
 	present(-1.);
-	
-	present(0.5);
-	present(0.25);
-	present(0.125);
-	present(0.0625);
+	std::cout << std::endl;
 
-	present(2.);
-	present(4.);
-	present(8.);
-	present(16.);
+	for (float f = 1.; f > 0.; f /= 2.)	
+		present(f);
+	std::cout << std::endl;
+
+	for (float f = 1.; f < 1./0.; f *= 2.)	
+		present(f);
+	std::cout << std::endl;
 
 	present(15.);
-	present(255. / 16);
+	present(255. / 16.);
+	present(255. / 16. - 15.);
 
 	present(1./0.);
 	present(-1./0.);
 	present(1./0. * 0.);
+	present(0./0.);
+	present(std::sqrt(-1.));
 }
